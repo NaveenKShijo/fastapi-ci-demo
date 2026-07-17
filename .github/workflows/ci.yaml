@@ -27,3 +27,6 @@ jobs:
       - name: Run tests
         run: | 
           pytest
+# when you run pytest, instead of launching a real web server that listens 
+#on a port, the TestClient takes your FastAPI application code and loads 
+#it directly into the computer's memory.
