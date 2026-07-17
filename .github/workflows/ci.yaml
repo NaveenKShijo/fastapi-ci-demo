@@ -1,0 +1,29 @@
+name: Python FastAPI CI demo
+
+on: 
+  push:
+    branches:
+      main
+
+jobs:
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Yeah I am learning to build automated pipelines with Github Action"      
+
+      - name: Import repository to the runner container
+        uses: actions/checkout@v4
+
+      - name: Setup Python in the github runner 
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: | 
+          pytest
